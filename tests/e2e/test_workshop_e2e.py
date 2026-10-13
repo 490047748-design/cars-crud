@@ -33,6 +33,11 @@ def test_user_edits_car_and_change_survives_reload(page, live_server):
     page.get_by_role("button", name="Create car").click()
 
     page.get_by_role("link", name="Edit car").click()
+
+    expect(
+        page.get_by_label("Model", exact=True)
+    ).to_have_value("Civic")
+
     page.get_by_label("Model", exact=True).fill("Accord")
     page.get_by_label("Year", exact=True).fill("2023")
     page.get_by_role("button", name="Save changes").click()
