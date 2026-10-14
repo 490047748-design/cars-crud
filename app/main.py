@@ -66,7 +66,7 @@ def create_app(database_path: str | Path | None = None) -> FastAPI:
 
     @application.get("/api/cars", response_model=list[Car], tags=["cars"])
     def list_cars() -> list[Car]:
-        return database.list_cars(db_path)
+        return storage.list_cars(db_path)
 
     @application.post(
         "/api/cars", response_model=Car, status_code=status.HTTP_201_CREATED, tags=["cars"]
