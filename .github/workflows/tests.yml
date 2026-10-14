@@ -63,6 +63,6 @@ jobs:
         with:
           context: .
           push: true
-                    tags: |
+          tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/cars-crud:latest
             ${{ secrets.DOCKERHUB_USERNAME }}/cars-crud:sha-${{ github.sha }}
